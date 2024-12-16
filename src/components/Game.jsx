@@ -16,6 +16,7 @@ const Game = () => {
     ArrowLeft: false, 
     ArrowRight: false
   })
+  const [rivals, setRivals] = useState([])
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -41,6 +42,22 @@ const Game = () => {
     }
   }, [])
 
+  const startGame = () => { 
+    setPlayer({ 
+      ...player, 
+      start: true, 
+      score: 0 
+    })
+    setPlayer({ ...player, start: true, score: 0 })
+    const initialEnemies = [ 
+      { x: Math.random() * 350, y: -100 }, 
+      { x: Math.random() * 350, y: -300 }, 
+      { x: Math.random() * 350, y: -500 } 
+    ] 
+    setEnemies(initialEnemies) 
+    playGame() 
+  }
+
   const playGame = () => {
     if (player.start) {
       let newPlayer = { ...player }
@@ -59,19 +76,20 @@ const Game = () => {
       }
   
       setPlayer(newPlayer)
-  
-      // Update score and collision detection logic
-  
+    
       requestAnimationFrame(playGame)
     }
   }
   
-
   return (
-    <div className='game'>
-      <div className="score">Score: {player.score}</div>
-      <Car style={{ left: player.x, top: player.y }}/>
-      {/* <RivalCar /> */}
+    <div className="game"> 
+      <div className="score">Score: {player.score}</div> 
+      {!player.start && <button onClick={startGame}>Start Game</button>
+      } 
+      <Car style={{ left: player.x, top: player.y }} /> 
+      {enemies.map((enemy, index) => ( 
+        <RivalCar key={index} style={{ left: enemy.x, top: enemy.y }} /> 
+      ))} 
     </div>
   )
 }
