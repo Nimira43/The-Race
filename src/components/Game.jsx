@@ -40,12 +40,16 @@ const Game = () => {
       window.removeEventListener('keyup', handleKeyUp)
     }
   }, [])
+
+  const playGame = () => {
+    // Logic for car movement and collisions
+  }
+
   return (
     <div className='game'>
-      <h1>Game</h1>
       <div className="score">Score: {player.score}</div>
       <Car style={{ left: player.x, top: player.y }}/>
-      <RivalCar />
+      {/* <RivalCar /> */}
     </div>
   )
 }
