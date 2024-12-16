@@ -49,12 +49,12 @@ const Game = () => {
       score: 0 
     })
     setPlayer({ ...player, start: true, score: 0 })
-    const initialEnemies = [ 
+    const initialRivals = [ 
       { x: Math.random() * 350, y: -100 }, 
       { x: Math.random() * 350, y: -300 }, 
       { x: Math.random() * 350, y: -500 } 
     ] 
-    setEnemies(initialEnemies) 
+    setRivals(initialRivals) 
     playGame() 
   }
 
@@ -87,8 +87,8 @@ const Game = () => {
       {!player.start && <button onClick={startGame}>Start Game</button>
       } 
       <Car style={{ left: player.x, top: player.y }} /> 
-      {enemies.map((enemy, index) => ( 
-        <RivalCar key={index} style={{ left: enemy.x, top: enemy.y }} /> 
+      {rivals.map((rival, index) => ( 
+        <RivalCar key={index} style={{ left: rival.x, top: rival.y }} /> 
       ))} 
     </div>
   )
