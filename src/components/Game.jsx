@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Car from './Car'
 import RivalCar from './RivalCar'
 import '../styles/Game.css'
@@ -17,6 +17,29 @@ const Game = () => {
     ArrowRight: false
   })
 
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      e.preventDefault()
+      setKeys((prevKeys) => ({
+        ...prevKeys,
+        [e.key]: true
+      }))
+    }
+    const handleKeyUp = (e) => {
+      e.preventDefault()
+      setKeys((prevKeys) => ({
+        ...prevKeys,
+        [e.key]: false
+      }))
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    window.addEventListener('keyup', handleKeyUp)
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+      window.removeEventListener('keyup', handleKeyUp)
+    }
+  }, [])
   return (
     <div className='game'>
       <h1>Game</h1>
