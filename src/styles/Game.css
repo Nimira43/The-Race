@@ -1,11 +1,11 @@
-/* .game {
+.game {
   background-color: #000;
   width: 400px;
   height: 100%;
   overflow: hidden;
   position: relative;
   margin: auto;
-} */
+}
 
 .score {
   background-color: #111;
