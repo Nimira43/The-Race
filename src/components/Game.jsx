@@ -42,8 +42,30 @@ const Game = () => {
   }, [])
 
   const playGame = () => {
-    // Logic for car movement and collisions
+    if (player.start) {
+      let newPlayer = { ...player }
+  
+      if (keys.ArrowUp && newPlayer.y > 0) {
+        newPlayer.y -= newPlayer.speed
+      }
+      if (keys.ArrowDown && newPlayer.y < window.innerHeight - 100) {
+        newPlayer.y += newPlayer.speed
+      }
+      if (keys.ArrowLeft && newPlayer.x > 0) {
+        newPlayer.x -= newPlayer.speed
+      }
+      if (keys.ArrowRight && newPlayer.x < 350) {
+        newPlayer.x += newPlayer.speed
+      }
+  
+      setPlayer(newPlayer)
+  
+      // Update score and collision detection logic
+  
+      requestAnimationFrame(playGame)
+    }
   }
+  
 
   return (
     <div className='game'>
