@@ -1,11 +1,9 @@
 import React from 'react'
 import '../styles/Car.css'
 
-const Car = () => {
+const Car = (props) => {
   return (
-    <div className='car'>
-      <h1>Car</h1>
-    </div>
+    <img src='../assets/f1-car.png' alt='F1 Car' className='car' style={props.style}/>
   )
 }
 
