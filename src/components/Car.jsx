@@ -3,7 +3,7 @@ import '../styles/Car.css'
 
 const Car = () => {
   return (
-    <div className='car-container'>
+    <div className='car'>
       <h1>Car</h1>
     </div>
   )

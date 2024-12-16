@@ -3,7 +3,7 @@ import '../styles/RivalCar.css'
 
 const RivalCar = () => {
   return (
-    <div className='rivalcar-container'>
+    <div className='rival-car'>
       <h1>Rival Car</h1>
     </div>
   )

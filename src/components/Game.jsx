@@ -10,12 +10,18 @@ const Game = () => {
     speed: 5, 
     score: 0
   })
+  const [keys, setKeys] = useState({ 
+    ArrowUp: false, 
+    ArrowDown: false, 
+    ArrowLeft: false, 
+    ArrowRight: false
+  })
 
   return (
-    <div className='game-container'>
+    <div className='game'>
       <h1>Game</h1>
-      <div className="score">Score: 50</div>
-      <Car/>
+      <div className="score">Score: {player.score}</div>
+      <Car style={{ left: player.x, top: player.y }}/>
       <RivalCar />
     </div>
   )
