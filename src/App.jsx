@@ -1,7 +1,10 @@
 function App() {
   
   return (
-    <div>The Race</div>
+    <div className="app">
+      <h1>The Race</h1>
+      <Game />
+    </div>
   )
 }
 
